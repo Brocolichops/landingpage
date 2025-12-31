@@ -2,6 +2,11 @@
   const $ = (sel, root = document) => root.querySelector(sel);
   const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
   const storageKey = "cv_estimate_v2";
+  fetch('https://your-backend-name.up.railway.app/api/contact', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify(data)
+  });
 
   const money = (n) =>
     typeof n === "number"
