@@ -343,11 +343,15 @@
         if (msg) msg.textContent = "Failed to send message. Please try again.";
       });
     });
-      fetch('https://your-backend-name.up.railway.app/api/contact', {
+      fetch('https://landingpage-production-209e.up.railway.app/api/contact', {
   method: 'POST',
   headers: { 'Content-Type': 'application/json' },
-  body: JSON.stringify(data)
-  });
+  body: JSON.stringify(formData)
+})
+.then(res => res.json())
+.then(data => console.log(data))
+.catch(err => console.error(err));
+
   }
 
   document.addEventListener("DOMContentLoaded", () => {
