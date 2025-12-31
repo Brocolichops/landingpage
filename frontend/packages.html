@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Packages & Pricing — Cerberus Visuals</title>
+  <meta name="description" content="Production packages, add-ons, and post-production services. Build an estimate and book." />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <script defer src="assets/js/data.js"></script>
+  <script defer src="assets/js/app.js"></script>
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container header-row">
+      <a class="brand" href="index.html" aria-label="Home">
+        <span class="brand-mark">CV</span>
+        <span class="brand-text">
+          <span class="brand-name">Cerberus Visuals</span>
+          <span class="brand-tag">Packages & Pricing</span>
+        </span>
+      </a>
+
+      <nav class="nav" aria-label="Primary">
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="navMenu">Menu</button>
+        <div id="navMenu" class="nav-menu">
+          <a class="nav-link" href="packages.html" aria-current="page">Packages & Pricing</a>
+          <a class="nav-link" href="talent.html">Models/Actors</a>
+          <a class="nav-link" href="contact.html">Contact</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="page-head">
+      <div class="container">
+        <h1>Packages & Pricing</h1>
+        <p class="lead">Choose a package, select add-ons, generate an estimate, then book.</p>
+      </div>
+    </section>
+
+    
+    <!-- CREDIT REQUIREMENT -->
+     <!--
+    <section class="section">
+      <div class="container">
+        <div class="callout">
+          <div>
+            <h3 class="card-title">Credit is required when you post our work.</h3>
+            <p class="muted">We’ll provide the exact credit line for YouTube/IG/TikTok captions.</p>
+          </div>
+          <a class="btn btn-primary" href="contact.html#bookingForm">Ask a question</a>
+        </div>
+      </div>
+    </section>
+    -->
+
+    <!-- PACKAGES LIST -->
+    <section class="section" id="packages">
+      <div class="container">
+        <div class="section-head">
+          <h2>Packages</h2>
+          <p>Click to review inclusions and timelines.</p>
+        </div>
+
+        <div id="packageCards" class="cards-2"></div>
+      </div>
+    </section>
+
+    <!-- ESTIMATOR -->
+    <section class="section soft" id="estimator">
+      <div class="container grid-2">
+        <div class="card">
+          <h2 class="card-title">Build an estimate</h2>
+          <p class="muted">Checkbox-based estimator for quick planning (variable-cost items are noted as “quoted”).</p>
+
+          <div class="divider"></div>
+
+          <div id="estPackageRadios"></div>
+
+          <div class="divider"></div>
+
+          <h3 class="card-title">Add-ons</h3>
+          <div id="estAddons"></div>
+
+          <div class="divider"></div>
+
+          <h3 class="card-title">Rush delivery (optional)</h3>
+          <p class="tiny">Rush: $200/day, up to $600 total.</p>
+          <input class="input" id="rushDays" type="number" min="0" max="10" value="0" />
+
+          <div class="divider"></div>
+
+          <div class="callout">
+            <div>
+              <div class="tiny muted">Estimated total</div>
+              <div style="font-size:1.35rem; font-weight:900;" id="estimateTotal">$0</div>
+            </div>
+            <a class="btn btn-primary" id="estimateBtn" href="contact.html#bookingForm">Book / send estimate</a>
+          </div>
+
+          <p class="tiny muted" id="estimateNote"></p>
+        </div>
+
+        <div class="card">
+          <h2 class="card-title">What happens after you book</h2>
+          <p class="muted"><!-- EDIT if you want -->We confirm scope, locations, schedule, and deliverables. Deposit locks the date.</p>
+          <div class="divider"></div>
+
+          <div id="rulesGrid" class="cards-2"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- POST-ONLY SERVICES (customer filmed it) -->
+    <section class="section" id="postonly">
+      <div class="container">
+        <div class="section-head">
+          <h2>Post-production only (you send footage)</h2>
+          <p>
+            You can send us your recordings and we’ll handle editing, clipping/subtitles, and color grading.
+            Great if you filmed on a phone/camera but want a professional finish.
+          </p>
+        </div>
+
+        <div class="cards-3" id="postOnlyCards"></div>
+
+        <div class="divider"></div>
+
+        <div class="callout">
+          <div>
+            <h3 class="card-title">Send footage → we deliver the final</h3>
+            <p class="muted">We’ll tell you the best export settings + how to upload cleanly.</p>
+          </div>
+          <button
+          class="btn btn-primary"
+          id="requestPostOnlyBtn"
+          type="button">
+          Request post-only pricing
+          </button>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Package Modal -->
+    <dialog id="pkgModal" class="card" style="padding:0; max-width:820px;">
+      <div style="padding:16px 18px; display:flex; justify-content:space-between; gap:14px;">
+        <div>
+          <h2 id="modalTitle" class="card-title" style="margin:0;"></h2>
+          <p id="modalSubtitle" class="muted" style="margin:6px 0 0;"></p>
+        </div>
+        <button class="btn btn-ghost" type="button" data-close-modal>Close</button>
+      </div>
+      <div class="divider" style="margin:0;"></div>
+
+      <div class="grid-2" style="padding:16px 18px;">
+        <div>
+          <h3 class="card-title">What’s included</h3>
+          <ul id="modalIncludes" class="muted"></ul>
+        </div>
+        <div>
+          <h3 class="card-title">Timeline</h3>
+          <ul id="modalTimeline" class="muted"></ul>
+          <div class="divider"></div>
+          <h3 class="card-title">Good for</h3>
+          <p id="modalBestFor" class="muted"></p>
+        </div>
+      </div>
+
+      <div class="divider" style="margin:0;"></div>
+      <div style="padding:16px 18px; display:flex; justify-content:flex-end; gap:10px;">
+        <button class="btn" type="button" data-add-to-estimate>Add to estimate</button>
+        <a class="btn btn-primary" href="contact.html#bookingForm">Book / ask a question</a>
+      </div>
+    </dialog>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="brand">
+        <span class="brand-mark">CV</span>
+        <span class="brand-text">
+          <span class="brand-name">Cerberus Visuals</span>
+          <span class="brand-tag">Packages • Post-only • Estimator</span>
+        </span>
+      </div>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="talent.html">Models/Actors</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="tiny muted">© <span id="year"></span> Cerberus Visuals</div>
+    </div>
+  </footer>
+</body>
+</html>

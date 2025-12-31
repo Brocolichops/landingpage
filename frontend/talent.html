@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Models & Actors — Cerberus Visuals</title>
+  <meta name="description" content="Browse models/actors. Search by role and location." />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <script defer src="assets/js/data.js"></script>
+  <script defer src="assets/js/app.js"></script>
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container header-row">
+      <a class="brand" href="index.html" aria-label="Home">
+        <span class="brand-mark">CV</span>
+        <span class="brand-text">
+          <span class="brand-name">Cerberus Visuals</span>
+          <span class="brand-tag">Models & Actors</span>
+        </span>
+      </a>
+
+      <nav class="nav" aria-label="Primary">
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="navMenu">Menu</button>
+        <div id="navMenu" class="nav-menu">
+          <a class="nav-link" href="packages.html">Packages & Pricing</a>
+          <a class="nav-link" href="talent.html" aria-current="page">Models/Actors</a>
+          <a class="nav-link" href="contact.html">Contact</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="page-head">
+      <div class="container">
+        <h1>Models & Actors</h1>
+        <p class="lead">A clean roster clients can browse. Add your own photos in <code>assets/images/</code>.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="card">
+          <div class="grid-2">
+            <div>
+              <label for="talentSearch">Search</label>
+              <input id="talentSearch" class="input" placeholder="Name, vibe, skills…" />
+            </div>
+            <div class="grid-2">
+              <div>
+                <label for="talentRole">Role</label>
+                <select id="talentRole" class="input"><option value="all">All</option></select>
+              </div>
+              <div>
+                <label for="talentLocation">Location</label>
+                <select id="talentLocation" class="input"><option value="all">All</option></select>
+              </div>
+            </div>
+          </div>
+
+          <div class="divider"></div>
+
+          <div id="talentGrid" class="cards-3"></div>
+
+          <div class="divider"></div>
+          <p class="tiny muted">Want to be listed? Send headshots + links via Contact.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="brand">
+        <span class="brand-mark">CV</span>
+        <span class="brand-text">
+          <span class="brand-name">Cerberus Visuals</span>
+          <span class="brand-tag">Talent roster</span>
+        </span>
+      </div>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="packages.html">Packages</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="tiny muted">© <span id="year"></span> Cerberus Visuals</div>
+    </div>
+  </footer>
+</body>
+</html>

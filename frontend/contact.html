@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Contact — Cerberus Visuals</title>
+  <meta name="description" content="Contact Cerberus Visuals. Booking requests, questions, and team profiles." />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <script defer src="assets/js/data.js"></script>
+  <script defer src="assets/js/app.js"></script>
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container header-row">
+      <a class="brand" href="index.html" aria-label="Home">
+        <span class="brand-mark">CV</span>
+        <span class="brand-text">
+          <span class="brand-name">Cerberus Visuals</span>
+          <span class="brand-tag">Contact</span>
+        </span>
+      </a>
+
+      <nav class="nav" aria-label="Primary">
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="navMenu">Menu</button>
+        <div id="navMenu" class="nav-menu">
+          <a class="nav-link" href="packages.html">Packages & Pricing</a>
+          <a class="nav-link" href="talent.html">Models/Actors</a>
+          <a class="nav-link" href="contact.html" aria-current="page">Contact</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="page-head">
+      <div class="container">
+        <h1>Contact</h1>
+        <p class="lead">Book a shoot, ask questions, or request post-only services.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container grid-2">
+        <div class="card">
+          <h2 class="card-title">Team</h2>
+          <p class="muted">Add your real photos in <code>assets/images/</code> and update <code>assets/js/data.js</code>.</p>
+
+          <div id="teamProfiles"></div>
+
+          <div class="divider"></div>
+
+          <!-- OPTIONAL PHOTO STRIP -->
+           
+          <h3 class="card-title">Behind the scenes</h3>
+          <p class="tiny muted">Placeholders — replace with your BTS photos.</p>
+          <div class="cards-3">
+            <div class="media">
+              <img loading="lazy" src="assets/images/placeholder-bts-1.jpg" alt="BTS photo 1" width="1200" height="800" />
+            </div>
+            <div class="media">
+              <img loading="lazy" src="assets/images/placeholder-bts-2.jpg" alt="BTS photo 2" width="1200" height="800" />
+            </div>
+            <div class="media">
+              <img loading="lazy" src="assets/images/placeholder-bts-3.jpg" alt="BTS photo 3" width="1200" height="800" />
+            </div>
+          </div>
+        </div>
+
+        <div class="card" id="bookingForm">
+  <h2 class="card-title">Booking / Questions</h2>
+  <p class="muted">Send a pre-filled email. No account, no backend.</p>
+
+  <div class="divider"></div>
+
+  <form id="contactForm">
+    <!-- Contact basics -->
+    <div class="cards-2">
+      <div>
+        <label for="name" class="form-label">Name</label>
+        <input class="input" id="name" required placeholder="Your name" autocomplete="name" />
+      </div>
+      <div>
+        <label for="email" class="form-label">Email</label>
+        <input class="input" id="email" type="email" required placeholder="you@email.com" autocomplete="email" />
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- Project details -->
+    <div class="cards-2">
+      <div>
+        <label for="projectType" class="form-label">Project type</label>
+        <select class="input" id="projectType">
+          <option>Music Video</option>
+          <option>Performance Video</option>
+          <option>Post-Production Only (I send footage)</option>
+          <option>Clips/Subtitles</option>
+          <option>Color Grading</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div>
+        <label for="preferredDate" class="form-label">Preferred date(s)</label>
+        <input class="input" id="preferredDate" placeholder="e.g., Jan 10–12 (weekends ok)" />
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <label for="songLink" class="form-label">Song link / reference</label>
+    <input class="input" id="songLink" placeholder="YouTube / Spotify / Drive link" />
+
+    <div class="divider"></div>
+
+    <label for="notes" class="form-label">Concept / notes</label>
+    <textarea class="input" id="notes" rows="6" placeholder="Locations, vibe, references, talent needs, etc."></textarea>
+
+    <div class="divider"></div>
+
+    <!-- Estimate summary + edit button -->
+    <div class="estimate-head">
+      <div>
+        <label for="estimateSummary" class="form-label">Estimate summary</label>
+        <div class="tiny muted">Auto-filled from your package estimate.</div>
+      </div>
+
+      <a class="btn btn-ghost" href="packages.html#estimator" id="editEstimateBtn">
+        Edit estimate
+      </a>
+    </div>
+
+    <textarea class="input" id="estimateSummary" rows="6" readonly></textarea>
+
+    <div class="divider"></div>
+
+    <button class="btn btn-primary btn-block" type="submit">Compose email</button>
+    <p id="formMsg" class="tiny" aria-live="polite"></p>
+  </form>
+
+  <div class="divider"></div>
+
+  <div class="contact-meta">
+    <div class="tiny muted">
+      Email: <a id="bookingEmailLink" href="#">booking@yourdomain.com</a><br />
+      Instagram: <a href="#" target="_blank" rel="noreferrer">@yourhandle</a>
+    </div>
+
+    <div class="tiny muted" style="text-align:right;">
+      <strong>Credit required</strong><br />
+      We’ll provide the exact credit line for captions/descriptions.
+    </div>
+  </div>
+</div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="brand">
+        <span class="brand-mark">CV</span>
+        <span class="brand-text">
+          <span class="brand-name">Cerberus Visuals</span>
+          <span class="brand-tag">Bookings • Questions</span>
+        </span>
+      </div>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="packages.html">Packages</a>
+        <a href="talent.html">Models/Actors</a>
+      </div>
+      <div class="tiny muted">© <span id="year"></span> Cerberus Visuals</div>
+    </div>
+  </footer>
+</body>
+</html>
