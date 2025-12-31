@@ -3,6 +3,8 @@
   const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
   const storageKey = "cv_estimate_v2";
 
+  const cors = require('cors');
+  app.use(cors()); // allow all origins temporarily
 
   const money = (n) =>
     typeof n === "number"
