@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Packages & Pricing — Radial Shot</title>
+  <title>Packages & Pricing — Aux Pictures</title>
   <meta name="description" content="Production packages, add-ons, and post-production services. Build an estimate and book." />
   <link rel="stylesheet" href="assets/css/styles.css" />
   <script defer src="assets/js/data.js"></script>
@@ -16,9 +16,9 @@
   <header class="site-header">
     <div class="container header-row">
       <a class="brand" href="index.html" aria-label="Home">
-        <span class="brand-mark">RS</span>
+        <span class="brand-mark">AP</span>
         <span class="brand-text">
-          <span class="brand-name">Radial Shot</span>
+          <span class="brand-name">Aux Pictures</span>
           <span class="brand-tag">Packages & Pricing</span>
         </span>
       </a>
@@ -43,22 +43,6 @@
       </div>
     </section>
 
-    
-    <!-- CREDIT REQUIREMENT -->
-     <!--
-    <section class="section">
-      <div class="container">
-        <div class="callout">
-          <div>
-            <h3 class="card-title">Credit is required when you post our work.</h3>
-            <p class="muted">We’ll provide the exact credit line for YouTube/IG/TikTok captions.</p>
-          </div>
-          <a class="btn btn-primary" href="contact.html#bookingForm">Ask a question</a>
-        </div>
-      </div>
-    </section>
-    -->
-
     <!-- PACKAGES LIST -->
     <section class="section" id="packages">
       <div class="container">
@@ -76,23 +60,47 @@
       <div class="container grid-2">
         <div class="card">
           <h2 class="card-title">Build an Estimate</h2>
-          <p class="muted">Select the packages and services that fit your vision.</p>
+          <p class="muted">Choose a package or post-only services (or both if needed).</p>
 
           <div class="divider"></div>
 
+          <!-- Packages radios (JS should render with a "None / Post-only" option) -->
+          <h3 class="card-title">Production package</h3>
           <div id="estPackageRadios"></div>
 
           <div class="divider"></div>
 
-          <h3 class="card-title">Add-ons</h3>
-          <div id="estAddons"></div>
-          <p class="tiny">*seconds refer to final on-screen time of the VFX shot.</p>
+          <!-- Post-only (multi-select) — only shows when Post Production ONLY is selected -->
+          <div id="estPostOnlyBlock" style="display:none;">
+            <h3 class="card-title">Post-Production Only (multi-select)</h3>
+            <p class="tiny muted">If you already have footage, pick one or more services below.</p>
+            <div id="estPostOnly"></div>
+          </div>
+          
+          <!-- Bundles -->
+          <h3 class="card-title">Bundles</h3>
+          <p class="tiny muted">Optional bundles (great for rollouts). Select any that fit.</p>
+          <div id="estBundles"></div>
+
           <div class="divider"></div>
 
+          <!-- Add-ons -->
+          <h3 class="card-title">Add-ons</h3>
+          <div id="estAddons"></div>
+
+          <p class="tiny muted" style="margin-top:10px;">
+            Need talent? Select collaborators on the <a href="talent.html">Models/Actors</a> page.
+          </p>
+
+          <div class="divider"></div>
+
+          <!-- Rush -->
           <h3 class="card-title">Rush Delivery</h3>
-          <p class="tiny">Speed up the delivery process.</p>
-          <p class="tiny">Rush: $200/day, up to $600 total.</p>
-          <input class="input" id="rushDays" type="number" min="0" max="10" value="0" />
+          <p class="tiny muted">Rush: $200/day, capped to 3 days.</p>
+          <div style="display:flex; gap:10px; align-items:center; flex-wrap:wrap;">
+            <input class="input" id="rushDays" type="number" min="0" max="3" value="0" style="max-width:140px;" />
+            <span class="tiny muted">days</span>
+          </div>
 
           <div class="divider"></div>
 
@@ -101,10 +109,14 @@
               <div class="tiny muted">Estimated total</div>
               <div style="font-size:1.35rem; font-weight:900;" id="estimateTotal">$0</div>
             </div>
-            <a class="btn btn-primary" id="estimateBtn" href="contact.html#bookingForm">Book / send estimate</a>
+            <div style="display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end;">
+              <button class="btn btn-ghost" id="estimateResetBtn" type="button">Reset estimate</button>
+              <a class="btn btn-primary" id="estimateBtn" href="contact.html#bookingForm">Book / send estimate</a>
+            </div>
           </div>
 
-          <p class="tiny muted" id="estimateNote"></p>
+          <p class="tiny muted" id="estimateNote" aria-live="polite"></p>
+          <p class="tiny muted" id="talentNote" aria-live="polite"></p>
         </div>
 
         <div class="card">
@@ -117,7 +129,7 @@
       </div>
     </section>
 
-    <!-- POST-ONLY SERVICES (customer filmed it) -->
+    <!-- POST-ONLY SERVICES (cards) -->
     <section class="section" id="postonly">
       <div class="container">
         <div class="section-head">
@@ -134,7 +146,7 @@
 
         <div class="callout">
           <div>
-            <h3 class="card-title">Send footage → we deliver the final</h3>
+            <h3 class="card-title">Send Footage → We Deliver The Final</h3>
             <p class="muted">We’ll tell you the best export settings + how to upload cleanly.</p>
           </div>
           <a class="btn btn-primary" href="contact.html#bookingForm">Request post-only pricing</a>
@@ -151,6 +163,7 @@
         </div>
         <button class="btn btn-ghost" type="button" data-close-modal>Close</button>
       </div>
+
       <div class="divider" style="margin:0;"></div>
 
       <div class="grid-2" style="padding:16px 18px;">
@@ -168,7 +181,7 @@
       </div>
 
       <div class="divider" style="margin:0;"></div>
-      <div style="padding:16px 18px; display:flex; justify-content:flex-end; gap:10px;">
+      <div style="padding:16px 18px; display:flex; justify-content:flex-end; gap:10px; flex-wrap:wrap;">
         <button class="btn" type="button" data-add-to-estimate>Add to estimate</button>
         <a class="btn btn-primary" href="contact.html#bookingForm">Book / ask a question</a>
       </div>
@@ -178,9 +191,9 @@
   <footer class="site-footer">
     <div class="container footer-grid">
       <div class="brand">
-        <span class="brand-mark">RS</span>
+        <span class="brand-mark">AP</span>
         <span class="brand-text">
-          <span class="brand-name">Radial Shot</span>
+          <span class="brand-name">Aux Pictures</span>
           <span class="brand-tag">Packages • Post-only • Estimator</span>
         </span>
       </div>
@@ -189,8 +202,9 @@
         <a href="talent.html">Models/Actors</a>
         <a href="aboutus.html">About Us</a>
         <a href="contact.html">Contact</a>
+        <a href="privacy.html">Privacy</a>
       </div>
-      <div class="tiny muted">© <span id="year"></span> Radial Shot</div>
+      <div class="tiny muted">© <span id="year"></span> Aux Pictures</div>
     </div>
   </footer>
 </body>

@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Models & Actors — Radial Shot</title>
-  <meta name="description" content="Browse models/actors. Search by role and location." />
+  <title>Models & Actors — Aux Pictures</title>
+  <meta name="description" content="Browse models/actors. Select talent to include in your estimate." />
   <link rel="stylesheet" href="assets/css/styles.css" />
   <script defer src="assets/js/data.js"></script>
   <script defer src="assets/js/app.js"></script>
@@ -16,9 +16,9 @@
   <header class="site-header">
     <div class="container header-row">
       <a class="brand" href="index.html" aria-label="Home">
-        <span class="brand-mark">RS</span>
+        <span class="brand-mark">AP</span>
         <span class="brand-text">
-          <span class="brand-name">Radial Shot</span>
+          <span class="brand-name">Aux Pictures</span>
           <span class="brand-tag">Models & Actors</span>
         </span>
       </a>
@@ -39,7 +39,9 @@
     <section class="page-head">
       <div class="container">
         <h1>Models & Actors</h1>
-        <p class="lead">Trustworthy and hardworking collaborators of Radial Shot.</p>
+        <p class="lead">
+          Select talent you’d like involved in your project. Selections are saved and appear in your estimate.
+        </p>
       </div>
     </section>
 
@@ -65,10 +67,21 @@
 
           <div class="divider"></div>
 
+          <!-- JS renders selectable talent cards + multi-image carousel per person -->
           <div id="talentGrid" class="cards-3"></div>
 
           <div class="divider"></div>
-          <p class="tiny muted">Want to be listed? Send headshots + links via <span class = "underlinecontact"><a href="contact.html">Contact</a></span>.</p>
+
+          <div class="callout">
+            <div>
+              <h3 class="card-title">Done selecting?</h3>
+              <p class="muted">Go back to your estimate and keep building.</p>
+            </div>
+            <a class="btn btn-primary" href="packages.html#estimator">Back to estimate</a>
+          </div>
+
+          <div class="divider"></div>
+          <p class="tiny muted">Want to be listed? Send headshots + links via <span class="underlinecontact"><a href="contact.html">Contact</a></span>.</p>
         </div>
       </div>
     </section>
@@ -77,9 +90,9 @@
   <footer class="site-footer">
     <div class="container footer-grid">
       <div class="brand">
-        <span class="brand-mark">RS</span>
+        <span class="brand-mark">AP</span>
         <span class="brand-text">
-          <span class="brand-name">Radial Shot</span>
+          <span class="brand-name">Aux Pictures</span>
           <span class="brand-tag">Talent Roster</span>
         </span>
       </div>
@@ -88,8 +101,9 @@
         <a href="packages.html">Packages</a>
         <a href="aboutus.html">About Us</a>
         <a href="contact.html">Contact</a>
+        <a href="privacy.html">Privacy</a>
       </div>
-      <div class="tiny muted">© <span id="year"></span> Cerberus Visuals</div>
+      <div class="tiny muted">© <span id="year"></span> Aux Pictures</div>
     </div>
   </footer>
 </body>
