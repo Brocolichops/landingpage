@@ -5,7 +5,7 @@ window.CV_DATA = {
     reasonableTravel: "90 minutes of travel time from Newark, NJ",
     bookingEmail: "realauxpictures@gmail.com",
     creditLine: "Credit: Aux Pictures (@auxpictures)",
-    backendURL: "https://landingpage-production-209e.up.railway.app"  // Replace with your actual Railway backend URL
+    backendURL: "https://landingpage-f6n9.onrender.com"  // Updated to Render backend URL
   },
 
   homeSlides: [
