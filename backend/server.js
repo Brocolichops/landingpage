@@ -86,7 +86,7 @@ app.post("/api/contact", async (req, res) => {
     }
 
     const sendPayload = {
-      from: process.env.EMAIL_FROM || `Cerberus Visuals <no-reply@cerberusvisuals.com>`,
+      from: process.env.EMAIL_FROM || `Aux Pictures <no-reply@auxpictures.com>`,
       to: [process.env.EMAIL_TO],
       subject: `[Booking] ${projectType || "New inquiry"} — ${name}`,
       text: `Name: ${name}\nEmail: ${email}\nProject type: ${projectType}\nPreferred date(s): ${preferredDate}\nSong link: ${songLink}\n\nNotes:\n${notes}\n\n------------------\nEstimate:\n${estimate}`
@@ -132,7 +132,7 @@ app.get("/api/test-email", async (req, res) => {
         Authorization: `Bearer ${RESEND_API_KEY}`
       },
       body: JSON.stringify({
-        from: process.env.EMAIL_FROM || `Cerberus Visuals Test <no-reply@cerberusvisuals.com>`,
+        from: process.env.EMAIL_FROM || `Aux Pictures Test <no-reply@auxpictures.com>`,
         to: [process.env.EMAIL_TO],
         subject: "Test Email from Deployed Server",
         text: "If you received this, your Resend email setup works!"
