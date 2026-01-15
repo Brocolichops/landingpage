@@ -677,27 +677,34 @@ if (estimateBox && !estimateBox.value) {
       const preferredDate = $("#preferredDate")?.value || "";
       const songLink = $("#songLink")?.value || "";
       const notes = $("#notes")?.value || "";
+      const estimate = estimateToText(loadEstimate());
 
-      const subject = encodeURIComponent(`[Booking] ${projectType} — ${name}`);
-      const body = encodeURIComponent(
-        [
-          `Name: ${name}`,
-          `Email: ${email}`,
-          `Project type: ${projectType}`,
-          `Preferred dates: ${preferredDate}`,
-          `Song link/reference: ${songLink}`,
-          "",
-          "Concept / notes:",
+      // Send to backend API instead of mailto
+      fetch(window.CV_DATA.business.backendURL + '/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name,
+          email,
+          projectType,
+          preferredDate,
+          songLink,
           notes,
-          "",
-          "Estimate summary:",
-          estimateToText(loadEstimate())
-        ].join("\n")
-      );
-
-      const to = window.CV_DATA.business.bookingEmail;
-      window.location.href = `mailto:${to}?subject=${subject}&body=${body}`;
-      if (msg) msg.textContent = "Opening your email app…";
+          estimate
+        })
+      })
+      .then(response => response.json())
+      .then(data => {
+        if (data.success) {
+          msg.textContent = "Email sent successfully!";
+          form.reset(); // Optional: reset form on success
+        } else {
+          msg.textContent = "Failed to send email: " + (data.error || "Unknown error");
+        }
+      })
+      .catch(err => {
+        msg.textContent = "Error: " + err.message;
+      });
     });
   }
 
