@@ -1,0 +1,10 @@
+# Render deployment configuration for Node.js backend
+buildCommand = "npm install"
+startCommand = "npm start"
+env = [
+  { key = "PORT", value = "10000" },
+  { key = "FRONTEND_URL", value = "https://your-frontend-url.com" },
+  { key = "RESEND_API_KEY", value = "your-resend-api-key" },
+  { key = "EMAIL_TO", value = "your@email.com" },
+  { key = "EMAIL_FROM", value = "your@email.com" }
+]
